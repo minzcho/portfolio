@@ -18,6 +18,8 @@
    - hero     : 페이지 상단 큰 이미지 경로 (null이면 그라데이션 더미)
    - externalUrl: 외부 링크 프로젝트 (선택). 있으면 홈 카드 클릭 시
                  상세 페이지 대신 이 주소가 새 탭으로 열림 (sections 불필요)
+   - cursorLabel: 홈 카드에 마우스를 올렸을 때 커서 툴팁에 표시할 문구 (선택).
+                 생략하면 'View Project' (외부 링크는 'Visit Site ↗')
    - summary  : 페이지 타이틀 아래 한 줄 요약 (선택)
    - sectionGap: 이 프로젝트의 섹션 사이 간격 px (선택, 기본 80)
    - meta     : { role, period, client 또는 service, contribution(줄 배열) }
@@ -144,6 +146,7 @@ const WALLA_PROJECT = {
     date: '2026. 04',
     size: 'l',
     thumb: WALLA_IMG + 'hero.png',
+    thumbVideo: WALLA_IMG + 'hero.mov',
     hero: WALLA_IMG + 'hero.png',
     meta: {
         role: 'PM, PD · 5인 팀 프로젝트',
@@ -711,9 +714,9 @@ const CYWORLD_PROJECT = {
     category: '토이 프로젝트',
     date: '2021',
     size: 'm',
-    thumb: null, /* 썸네일 준비되면 경로 넣기 */
     thumb: CYWORLD_IMG + 'hero.png',
     externalUrl: 'https://minjungcho.netlify.app/',
+    cursorLabel: 'Visit Site ↗',
 };
 
 window.PORTFOLIO_PROJECTS = [

@@ -15,6 +15,9 @@
         } else {
             card.href = 'project.html?id=' + encodeURIComponent(project.id);
         }
+        /* 커스텀 커서 툴팁 문구 (projects.js의 cursorLabel로 프로젝트마다 변경 가능) */
+        card.setAttribute('data-cursor-label',
+            project.cursorLabel || (project.externalUrl ? 'Visit Site ↗' : 'View Project'));
         card.className = 'card card--' + (project.size || 'm');
 
         const text = document.createElement('div');

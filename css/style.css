@@ -60,6 +60,11 @@
    Tokens
    ============================================ */
 :root {
+    /* 커스텀 커서 — 색상은 여기서 수정 */
+    --cursor-color: #81959fcf;
+    --cursor-text-color: #ffffff;
+    --cursor-size: 14px;
+
     --color-bg: #ffffff;
     --color-text: #32404f;
     --color-text-muted: rgba(50, 64, 79, 0.584);
@@ -120,6 +125,65 @@ img {
     margin: 0 auto;
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
+}
+
+/* ============================================
+   Custom cursor
+   ============================================ */
+/* 커스텀 커서가 활성화되면(마우스 기기) 기본 커서 숨김 */
+.has-custom-cursor,
+.has-custom-cursor * {
+    cursor: none !important;
+}
+
+.cursor-dot {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    background: var(--cursor-color);
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
+    will-change: transform;
+}
+
+.cursor-dot--visible {
+    opacity: 1;
+}
+
+/* 선택 가능한 영역(링크·버튼) 호버 시 확대 */
+.cursor-dot--grow {
+    width: 48px;
+    height: 48px;
+}
+
+/* 프로젝트 카드 호버 시 텍스트 툴팁으로 변형 */
+.cursor-dot--tooltip {
+    width: auto;
+    height: auto;
+    padding: 10px 16px;
+}
+
+.cursor-label {
+    display: none;
+    font-family: var(--font-en);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--cursor-text-color);
+    white-space: nowrap;
+}
+
+.cursor-dot--tooltip .cursor-label {
+    display: block;
 }
 
 /* ============================================
@@ -306,6 +370,14 @@ img {
     color: var(--color-text-muted);
 }
 
+.card-meta span:first-child,
+.meta-row span:first-child {
+    font-family: var(--font-kr);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+}
+
 .card-meta {
     margin-top: 8px;
 }
@@ -322,6 +394,13 @@ img {
     display: block;
     width: 100%;
     height: auto;
+    transition: transform 0.5s ease;
+}
+
+/* 썸네일 호버 시 살짝 확대 */
+.card:hover .card-image img,
+.card:hover .card-image video {
+    transform: scale(1.04);
 }
 
 .card-image:empty {
