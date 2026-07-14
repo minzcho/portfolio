@@ -16,6 +16,8 @@
    - thumbVideo: 홈 카드 영상 경로 (선택). 있으면 thumb 대신 자동재생·반복 표시,
                  thumb 이미지는 영상 로딩 전 poster로 사용
    - hero     : 페이지 상단 큰 이미지 경로 (null이면 그라데이션 더미)
+   - externalUrl: 외부 링크 프로젝트 (선택). 있으면 홈 카드 클릭 시
+                 상세 페이지 대신 이 주소가 새 탭으로 열림 (sections 불필요)
    - summary  : 페이지 타이틀 아래 한 줄 요약 (선택)
    - sectionGap: 이 프로젝트의 섹션 사이 간격 px (선택, 기본 80)
    - meta     : { role, period, client 또는 service, contribution(줄 배열) }
@@ -138,7 +140,7 @@ const WALLA_PROJECT = {
     id: 'walla',
     title: '처음 본 사람도 읽을 수 있게\n설문조사 로직 구조도 개선',
     summary: '설문조사 폼 빌더 SaaS의 설문 제작 화면에서 86% 이탈률, 데이터로 문제를 특정하고 UT로 검증한 UX 개선 프로젝트',
-    category: 'UX Design',
+    category: '사이드 프로젝트',
     date: '2026. 04',
     size: 'l',
     thumb: WALLA_IMG + 'hero.png',
@@ -287,7 +289,7 @@ const WALLA_PROJECT = {
                         { label: '기준', text: 'AS-IS 대비 이동 시간 감소, 마우스 조작 피로 감소' },
                     ],
                 },
-                { type: 'cta', text: 'TO-BE 프로토타입 바로가기', href: '#' },
+                { type: 'cta', text: 'TO-BE 프로토타입 바로가기', href: 'https://walla-ut.vercel.app/' },
             ],
         },
         {
@@ -395,7 +397,7 @@ const ADMIN_PROJECT = {
     id: 'admin',
     title: '신규 관리자도 쓸 수 있는\n어드민 페이지로 재설계',
     summary: '공공기관 드라이브 관리자가 복잡한 보안 정책을 빠르게 설정하도록 정보 위계를 재설계하고 UT로 검증한 UX 개선 프로젝트',
-    category: '실무프로젝트',
+    category: '실무 프로젝트',
     date: '2024. 07',
     size: 'l',
     thumb: ADMIN_IMG + 'hero.png',
@@ -617,7 +619,7 @@ const DESIGN_SYSTEM = {
     id: 'design-system',
     title: '접근성을 품은\nAtomic 디자인 시스템 구축기',
     summary: '공공기관 드라이브 관리자가 복잡한 보안 정책을 빠르게 설정하도록 정보 위계를 재설계하고 UT로 검증한 UX 개선 프로젝트',
-    category: '실무프로젝트',
+    category: '실무 프로젝트',
     date: '2023. 12',
     size: 'l',
     thumb: DESIGN_SYSTEM_IMG + 'hero.png',
@@ -697,17 +699,29 @@ const DESIGN_SYSTEM = {
     ],
 };
 
+/* ------------------------------------------------------------
+   싸이월드 미니홈피 — 외부 링크 프로젝트 (상세 페이지 없음)
+   externalUrl이 있으면 홈 카드 클릭 시 해당 주소가 새 탭으로 열림
+   ------------------------------------------------------------ */
+const CYWORLD_IMG = 'assets/img/cyworld/';
+
+const CYWORLD_PROJECT = {
+    id: 'cyworld',
+    title: '싸이월드 미니홈피',
+    category: '토이 프로젝트',
+    date: '2021',
+    size: 'm',
+    thumb: null, /* 썸네일 준비되면 경로 넣기 */
+    thumb: CYWORLD_IMG + 'hero.png',
+    externalUrl: 'https://minjungcho.netlify.app/',
+};
+
 window.PORTFOLIO_PROJECTS = [
     WALLA_PROJECT,
     ADMIN_PROJECT,
     DESIGN_SYSTEM,
+    CYWORLD_PROJECT,
+    /* 더미 프로젝트가 필요하면 이 형태로 추가:
     { id: 'project-1', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 's', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-2', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 'm', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-3', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 'l', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-4', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 's', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-5', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 'm', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-6', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 'm', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-7', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 'l', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-8', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 'l', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
-    { id: 'project-9', title: '프로젝트 타이틀', category: 'Category', date: 'Date', size: 's', thumb: null, hero: null, meta: DUMMY_META, sections: dummySections() },
+    */
 ];

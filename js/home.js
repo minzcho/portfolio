@@ -7,7 +7,14 @@
 
     function cardEl(project) {
         const card = document.createElement('a');
-        card.href = 'project.html?id=' + encodeURIComponent(project.id);
+        if (project.externalUrl) {
+            /* 외부 링크 프로젝트: 상세 페이지 대신 새 탭으로 열기 */
+            card.href = project.externalUrl;
+            card.target = '_blank';
+            card.rel = 'noopener';
+        } else {
+            card.href = 'project.html?id=' + encodeURIComponent(project.id);
+        }
         card.className = 'card card--' + (project.size || 'm');
 
         const text = document.createElement('div');

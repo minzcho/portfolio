@@ -168,6 +168,31 @@ img {
     width: 24px;
     height: 24px;
     color: var(--color-text-muted);
+    position: relative;
+}
+
+/* 지구본 호버 툴팁 (다국어 기능 공사중) */
+.nav-globe::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--color-text);
+    color: #ffffff;
+    font-family: var(--font-kr);
+    font-size: 13px;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 10;
+}
+
+.nav-globe:hover::after {
+    opacity: 1;
 }
 
 /* ============================================
@@ -225,7 +250,21 @@ img {
    Home: Projects grid
    ============================================ */
 .projects {
-    padding-bottom: 60px;
+    padding-bottom: 0;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+    padding-top: 120px; /* 프로젝트 그리드와의 간격 */
+}
+
+.site-footer .container {
+    padding-bottom: 25px; /* 네비와 동일한 하단 여백 */
+    text-align: right;
+    font-weight: 500;
+    color: var(--color-text-muted);
 }
 
 .projects-grid {
@@ -832,8 +871,7 @@ img {
         margin-top: 16px;
     }
 
-    .hero,
-    .projects {
+    .hero {
         padding-bottom: 40px;
     }
 
