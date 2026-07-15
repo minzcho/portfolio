@@ -715,6 +715,7 @@ const CYWORLD_PROJECT = {
     date: '2021',
     size: 'm',
     thumb: CYWORLD_IMG + 'hero.png',
+    thumbVideo: CYWORLD_IMG + 'hero.mp4',
     externalUrl: 'https://minjungcho.netlify.app/',
     cursorLabel: 'Visit Site ↗',
 };
