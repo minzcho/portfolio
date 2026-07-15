@@ -42,7 +42,8 @@
        { type: 'video', src: '경로', poster: '이미지 경로', caption: '...' }
          → 화면에 55% 이상 들어오면 0초부터 자동 재생, 벗어나면 정지·초기화
        { type: 'quote',   name: '...', role: '...', text: '...' }
-         → role 생략 가능. TASK, 시나리오, HMW 같은 라벨 박스로도 사용
+         → role 생략 가능. text 안에서 [문구](https://...) 형식의 새 탭 링크 사용 가능
+           TASK, 시나리오, HMW 같은 라벨 박스로도 사용
        { type: 'heading', title: '...', text: '...', icon: '...' }
          → 20px 소제목 + 설명. icon(선택): 'warning' | 'check'(제목 뒤)
            'lightbulb' | 'chat'(제목 앞)
@@ -614,6 +615,324 @@ const ADMIN_PROJECT = {
 };
 
 /* ------------------------------------------------------------
+   Bustago - 시외버스 공식 앱 ‘버스타고(BUSTAGO)' 리뉴얼 프로젝트
+   ------------------------------------------------------------ */
+const BUSTAGO_IMG = 'assets/img/bustago/';
+
+const BUSTAGO_PROJECT = {
+    id: 'bustago',
+    title: '검색 실패와 결제 불안을 줄인\n 버스타고 앱 리뉴얼',
+    summary: '검색 실패와 결제 불안을 리서치로 정의하고, 검색부터 QR 탑승까지 핵심 예매 흐름을 다시 설계한 앱 리뉴얼 프로젝트',
+    category: '사이드 프로젝트',
+    date: '2025. 12',
+    size: 'l',
+    thumb: BUSTAGO_IMG + 'hero.png',
+    hero: BUSTAGO_IMG + 'hero.png',
+    sectionGap: 120,
+    meta: {
+        role: ['프로덕트 디자이너', '개인 프로젝트'],
+        period: ['2025. 12 (3주)'],
+        service: ['버스타고', '이동의 즐거움'],
+        contribution: '100% (리서치, 문제 정의, UX 기획, UI 디자인, 프로토타이핑)',
+    },
+    sections: [
+        {
+            subtitle: 'Overview',
+            title: '예매 앱이 예매 기능을 제대로 수행할 수 있도록',
+            children: [
+                {
+                    type: 'text',
+                    text: '코로나19 이후 시외버스와 고속버스 예매는 터미널 현장에서 앱으로 빠르게 전환되었습니다.\n' +
+                        '명절 귀성, 주말 여행, 공항 이동 등 시간이 정해진 일정에서 사전 예매는 이제 선택이 아닌 필수가 되었으며,\n' +
+                        '비대면 예매 비율은 2020년 이후 3배 이상 증가했습니다.\n' +
+                        '\n그러나 전국 시외버스 통합 예매를 표방하는 공식 앱 버스타고는 예매라는 핵심 기능에서 심각한 사용성 문제를 보이고 있습니다. 검색 기능이 제대로 작동하지 않아 사용자들은 터미널이나 노선을 찾지 못하고, 좌석을 선택한 후 결제를 진행하면 좌석이 갑자기 사라지며, 예매 완료 후에도 내역을 찾기 어려운 구조로 되어 있습니다.\n' +
+                        '\n이는 일상적 불편함을 넘어 다음 버스 대기, 약속 지각, 비행기 탑승 차질로 이어질 수 있는 중요한 문제입니다.\n' +
+                        '공식 통합 예매 앱으로서 독점적 지위를 갖고 있음에도, 기본적인 사용성조차 보장하지 못한다면 사용자 이탈과 신뢰 하락은 불가피합니다.\n' +
+                        '이 프로젝트는 예매 앱이 예매 기능을 제대로 수행할 수 있도록 개선하는 것을 목표로 합니다.',
+                },
+            ],
+        },
+        {
+            subtitle: 'Research / Survey / Interview',
+            title: '공식 앱이지만...\n어쩔 수 없이 쓰고 있던 사용자들의 실제 경험을 리서치로 확인',
+            text: '시외버스 예매 시장은 고속버스 전산망과 시외버스 전산망으로 나뉘어 있습니다. 티머니GO가 고속버스 예매와 여러 이동 수단을 통합한 반면, 버스타고는 약 140개 터미널의 시외버스 예매를 담당하는 사실상 독점적인 공식 앱입니다.\n\n하지만 앱 리뷰에는 검색 실패, 결제 오류, 복잡한 탐색이 반복해서 등장했습니다. 예매라는 핵심 목적을 달성하기 어렵다는 문제를 실제 사용자 경험으로 확인하고자 앱 리뷰, 설문, 심층 인터뷰를 함께 진행했습니다.',
+            children: [
+                {
+                    type: 'stats',
+                    items: [
+                        { value: '1,280건', label: '앱 리뷰 분석' },
+                        { value: 'N=20', label: '사용자 설문' },
+                        { value: '2명', label: '심층 인터뷰: 각 40분' },
+                    ],
+                },
+                {
+                    type: 'quote',
+                    name: '구글플레이/앱스토어 1,280개 리뷰 크롤링 분석',
+                    text: '- 총 리뷰 수: 1,280개\n- [raw data spreadsheet 링크](https://docs.google.com/spreadsheets/d/1mo_Y9XcrAOo7cYZRBzACBFI5iSKkuj6yLuJs4b-bshs/edit?usp=sharing)',
+                },
+                {
+                    type: 'horizontalGallery',
+                    images: [
+                        { src: BUSTAGO_IMG + 'app-review.png', alt: '구글플레이/앱스토어 리뷰 점수' },
+                        { src: BUSTAGO_IMG + 'app-review-point.png', alt: '구글플레이/앱스토어 리뷰 분석' },
+                    ],
+                },
+                {
+                    type: 'quote',
+                    name: '사용자 경험 설문 조사',
+                    text: '- 기간: 2025. 12. 23 ~ 12. 29 (7일간) \n- 총 응답자 20명\n- [설문조사 링크](https://naver.me/xt4S3Jsx)',
+                },
+                {
+                    type: 'horizontalGallery',
+                    images: [
+                        { src: BUSTAGO_IMG + 'survey-01.png', alt: '버스타고 사용자 설문 조사 결과1' },
+                        { src: BUSTAGO_IMG + 'survey-02.png', alt: '버스타고 사용자 설문 조사 결과2' },
+                        { src: BUSTAGO_IMG + 'survey-03.png', alt: '버스타고 사용자 설문 조사 결과3' },
+                    ],
+                },
+                {
+                    type: 'quote',
+                    name: '사용자 경험 설문 조사',
+                    text: '- 조사 일자: 2025. 12. 30\n- 참여자 수: 2명\n- 소요시간: 1인 당 약 40분',
+                },
+                {
+                    type: 'image',
+                    src: BUSTAGO_IMG + 'idi-00.png',
+                    alt: '앱 리뷰와 사용자 인터뷰를 주제별로 묶은 어피니티 다이어그램',
+                },
+                {
+                    type: 'horizontalGallery',
+                    images: [
+                        { src: BUSTAGO_IMG + 'idi-01.png', alt: '버스타고 사용자 심층 인터뷰 결과1' },
+                        { src: BUSTAGO_IMG + 'idi-02.png', alt: '버스타고 사용자 심층 인터뷰 결과2' },
+                        { src: BUSTAGO_IMG + 'idi-03.png', alt: '버스타고 사용자 심층 인터뷰 결과3' },
+                        { src: BUSTAGO_IMG + 'idi-04.png', alt: '버스타고 사용자 심층 인터뷰 결과4' },
+                    ],
+                },
+
+            ],
+        },
+        {
+            subtitle: 'Affinity Diagram',
+            title: '예매 상태와 결과를 신뢰할 수 없는 경험을 핵심 문제로 정의',
+            text: '리서치 결과를 검색과 터미널 탐색, 좌석 선택과 결제, 예매 내역 확인의 세 구간으로 묶었습니다. 각 단계의 상태와 결과가 명확하게 전달되지 않아 사용자는 “예매가 정상적으로 완료되었는지” 신뢰하지 못하고 불안감을 느끼고 있었습니다.',
+            children: [
+                {
+                    type: 'quote',
+                    name: '문제점 분류 어피니티 다이어그램',
+                    text: '- 데이터 출처: 앱 리뷰 1,280건 + 사용자 서베이 20명\n- 타겟: 버스타고 앱을 이용하는 시민(특히 경기도민)\n- 핵심 영역: 검색 단계 & 결제 단계',
+                },
+                {
+                    type: 'image',
+                    src: BUSTAGO_IMG + 'affinity.png',
+                    alt: '앱 리뷰와 사용자 인터뷰를 주제별로 묶은 어피니티 다이어그램',
+                },
+            ],
+        },
+        {
+            subtitle: 'Hypotheses',
+            title: '검색 성공률과 좌석 상태 신뢰, 결제 불안을 중심으로 세운 핵심 가설',
+            children: [
+                {
+                    type: 'imageGroup',
+                    columns: 3,
+                    images: [
+                        { src: BUSTAGO_IMG + 'hypothesis_01.png', alt: '검색 인터페이스 개선' },
+                        { src: BUSTAGO_IMG + 'hypothesis_02.png', alt: '좌석 점유 시스템 개선' },
+                        { src: BUSTAGO_IMG + 'hypothesis_03.png', alt: '결제 단계 가시성 및 피드백' },
+                    ],
+                },
+            ],
+        },
+        {
+            subtitle: 'Information Architecture',
+            title: '검색–선택–결제–확인의 핵심 예매 흐름을 다시 구성',
+            text: '현재 작동하는 기능부터 안정화한다는 원칙으로 검색, 결제, 뒤로가기, 예매 내역을 우선했습니다. 기존 정보 구조에서 흩어져 있던 예매 내역과 탑승 정보를 홈 중심으로 정리하고, 출발지와 도착지는 지역 검색과 지도 탐색을 함께 제공하도록 설계했습니다.',
+            children: [
+                { type: 'image', src: BUSTAGO_IMG + 'ia.png', alt: '버스타고 앱의 기존 정보 구조와 개선 정보 구조 비교' },
+                {
+                    type: 'quote',
+                    name: '기존 IA 문제점',
+                    text: '- "내 정보" ≠ "예매조회"\n- 예매 내역 찾기 어려움(14일 필터 기본값)\n- 뒤로 가기 없음\n- 터미널 정보와 지도 연결 없음',
+                },
+            ],
+        },
+        {
+            subtitle: 'Wireframe',
+            title: '핵심 예매 흐름을 와이어프레임으로 구체화',
+            text: '홈에서 출발지와 도착지를 찾고, 날짜와 승객을 선택한 뒤 시간표–좌석–결제로 이어지는 흐름을 먼저 검증했습니다. 예매 완료 후에는 예매 내역, 탑승 위치, QR 승차권까지 한 흐름 안에서 확인할 수 있도록 연결했습니다.',
+            children: [
+                { type: 'image', src: BUSTAGO_IMG + 'wireframe.png', alt: '버스타고 와이어프레임' },
+            ],
+        },
+        {
+            subtitle: 'Final UI - APP',
+            title: '검색 실패와 결제 불안을 줄이는 버스타고 예매 경험',
+            text: '출발지와 도착지는 가까운 터미널, 지역 검색, 지도 탐색을 함께 제공해 목적지를 찾는 방법을 넓혔습니다. 좌석과 결제 단계에는 현재 상태와 제한 시간을 명확히 보여주고, 예매 완료 후에는 예매 내역–탑승 위치–QR 승차권을 끊김 없이 확인할 수 있도록 설계했습니다.',
+            children: [
+                {
+                    type: 'image',
+                    src: BUSTAGO_IMG + 'ux_goal.png',
+                    alt: '자세한 터미널 검색, 쉬운 검색, 편리한 예매 프로세스, 명확한 좌석 상태, 결제 불안 해소, 예매 내역 확인과 QR 탑승까지의 버스타고 UX 목표',
+                },
+                {
+                    type: 'horizontalGallery',
+                    label: '버스타고 최종 UI 화면',
+                    images: [
+                        { src: BUSTAGO_IMG + 'final-01.png', alt: 'Splash' },
+                        { src: BUSTAGO_IMG + 'final-02.png', alt: '버스타고 홈과 예매 시작 화면' },
+                        { src: BUSTAGO_IMG + 'final-03.png', alt: '가까운 터미널과 지역 검색, 지도 탐색을 제공하는 출발지와 도착지 선택 화면' },
+                        { src: BUSTAGO_IMG + 'final-04.png', alt: '가는/오는 날 선택' },
+                        { src: BUSTAGO_IMG + 'final-05.png', alt: '인원 및 유형 선택' },
+                        { src: BUSTAGO_IMG + 'final-06.png', alt: '버스 시간대 선택' },
+                        { src: BUSTAGO_IMG + 'final-07.png', alt: '좌석 상태와 선택 결과를 명확히 보여주는 좌석 선택 화면' },
+                        { src: BUSTAGO_IMG + 'final-08.png', alt: '승차권 예매 여정 카드 (예매중)' },
+                        { src: BUSTAGO_IMG + 'final-09.png', alt: '제한 시간과 결제 수단, 유의사항을 명확히 보여주는 결제 화면' },
+                        { src: BUSTAGO_IMG + 'final-10.png', alt: '예매 요약을 보여주는 결제 완료 화면' },
+                        { src: BUSTAGO_IMG + 'final-11.png', alt: '예매완료 내역' },
+                        { src: BUSTAGO_IMG + 'final-12.png', alt: '탑승 위치와 상세 정보를 제공하는 예매 상세 화면' },
+                        { src: BUSTAGO_IMG + 'final-13.png', alt: '현장에서 빠르게 제시할 수 있는 QR 승차권 화면' },
+                    ],
+                },
+                {
+                    type: 'image',
+                    src: BUSTAGO_IMG + 'features.png',
+                    alt: '기존 앱 및 경쟁 앱 대비 차별화 기능- 니즈 및 페인포인트 기반',
+                },
+                {
+                    type: 'image',
+                    src: BUSTAGO_IMG + 'prototype-info.png',
+                    alt: '피그마 프로토타이핑 구현 내역',
+                },
+                {
+                    type: 'cta',
+                    text: 'Prototype 보기',
+                    href: 'https://www.figma.com/proto/F3LhZgh6634HSlHBqrPoXe/%EC%A1%B0%EB%AF%BC%EC%A0%95%EB%8B%98?page-id=1664%3A26470&node-id=1664-26284&p=f&viewport=-1300%2C1347%2C0.72&t=mXf7AIkpfIzIR2Rx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1664%3A26417',
+                },
+            ],
+        },
+        {
+            subtitle: 'Final UI - Tablet/PC',
+            title: '태블릿과 데스크탑에서도 같은 경험을 제공하도록 화면을 확장',
+            text: '태블릿 및 데스크탑 화면에서는 검색과 예매 과정을 한눈에 볼 수 있도록 좌우로 확장했습니다. 출발지와 도착지 선택, 날짜와 승객 선택, 시간표와 좌석 선택, 결제와 예매 내역 확인까지의 핵심 예매 흐름을 한 화면에서 확인할 수 있도록 설계했습니다.',
+            children: [
+                {
+                    type: 'horizontalGallery',
+                    label: '버스타고 최종 UI 태블릿 화면',
+                    images: [
+                        { src: BUSTAGO_IMG + 'final-tablet-01.png', alt: 'Splash' },
+                        { src: BUSTAGO_IMG + 'final-tablet-02.png', alt: '버스타고 홈과 예매 시작 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-03.png', alt: '가까운 터미널과 지역 검색, 지도 탐색을 제공하는 출발지와 도착지 선택 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-04.png', alt: '검색 결과 없음 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-05.png', alt: '가는/오는 날 선택' },
+                        { src: BUSTAGO_IMG + 'final-tablet-06.png', alt: '버스 시간대 선택' },
+                        { src: BUSTAGO_IMG + 'final-tablet-07.png', alt: '좌석 상태와 선택 결과를 명확히 보여주는 좌석 선택 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-08.png', alt: '승차권 예매 여정 카드 (예매중)' },
+                        { src: BUSTAGO_IMG + 'final-tablet-09.png', alt: '제한 시간과 결제 수단, 유의사항을 명확히 보여주는 결제 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-10.png', alt: '예매 요약을 보여주는 결제 완료 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-11.png', alt: '예매완료 내역' },
+                        { src: BUSTAGO_IMG + 'final-tablet-12.png', alt: '예매 상세 화면' },
+                        { src: BUSTAGO_IMG + 'final-tablet-13.png', alt: '탑승 위치 안내' },
+                    ],
+                },
+                {
+                    type: 'horizontalGallery',
+                    label: '버스타고 최종 UI 화면',
+                    images: [
+                        { src: BUSTAGO_IMG + 'final-pc-01.png', alt: 'Splash' },
+                        { src: BUSTAGO_IMG + 'final-pc-02.png', alt: '버스타고 홈과 예매 시작 화면' },
+                        { src: BUSTAGO_IMG + 'final-pc-03.png', alt: '가까운 터미널과 지역 검색, 지도 탐색을 제공하는 출발지와 도착지 선택 화면' },
+                        { src: BUSTAGO_IMG + 'final-pc-04.png', alt: '검색 결과 없음 화면' },
+                        { src: BUSTAGO_IMG + 'final-pc-05.png', alt: '가는/오는 날 선택' },
+                        { src: BUSTAGO_IMG + 'final-pc-06.png', alt: '버스 시간대 선택' },
+                    ],
+                },
+            ],
+        },
+        {
+            subtitle: 'Design System',
+            title: '일관된 예매 경험을 위한 시각 언어',
+            text: '브랜드의 친근함을 유지하면서도 이동과 예매 과정에서 정보가 빠르게 읽히도록 컬러, 타이포그래피, 아이콘 규칙을 정리했습니다. 주요 행동과 상태에는 대비가 명확한 색을 사용하고, 작은 모바일 화면에서도 정보 위계가 흐트러지지 않도록 구성했습니다.',
+            children: [
+                {
+                    type: 'cta',
+                    text: '디자인 시스템 프로젝트 보러가기',
+                    href: 'project.html?id=bustago-design-system',
+                },
+            ],
+        },
+    ],
+};
+
+/* ------------------------------------------------------------
+   Bustago Design System — 버스타고 디자인 시스템
+   ------------------------------------------------------------ */
+const BUSTAGO_DESIGN_SYSTEM_IMG = 'assets/img/bustago-design-system/';
+
+const BUSTAGO_DESIGN_SYSTEM = {
+    id: 'bustago-design-system',
+    title: '버스타고 디자인 시스템',
+    summary: '브랜드의 친근함을 유지하면서도 이동과 예매 과정에서 정보가 빠르게 읽히도록 컬러, 타이포그래피, 아이콘 규칙을 정리했습니다.\n 주요 행동과 상태에는 대비가 명확한 색을 사용하고, 작은 모바일 화면에서도 정보 위계가 흐트러지지 않도록 구성했습니다.',
+    category: '사이드 프로젝트',
+    date: '2026. 01',
+    size: 'l',
+    thumb: BUSTAGO_DESIGN_SYSTEM_IMG + 'hero.png',
+    thumbVideo: BUSTAGO_DESIGN_SYSTEM_IMG + 'hypothesis_1.mp4',
+    hero: BUSTAGO_DESIGN_SYSTEM_IMG + 'hero.png',
+    sectionGap: 120,
+    meta: {
+        role: ['프로덕트 디자이너'],
+        period: ['2025. 01'],
+        service: ['버스타고'],
+        contribution: '개인 프로젝트',
+    },
+    sections: [
+        {
+            subtitle: 'Logo and Illustration',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'logo-illust.png', alt: '버스타고 리뉴얼 로고와 일러스트 시스템' },
+            ],
+        },
+        {
+            subtitle: 'Colors',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'color.png', alt: '버스타고 리뉴얼 컬러 시스템' },
+            ],
+        },
+        {
+            subtitle: 'Typography',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'typography.png', alt: '버스타고 리뉴얼 타이포그래피 시스템' },
+            ],
+        },
+        {
+            subtitle: 'Iconography',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'iconography.png', alt: '버스타고 리뉴얼 아이콘 시스템' },
+            ],
+        },
+        {
+            subtitle: 'Navigation',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'navigation.png', alt: '버스타고 리뉴얼 네비게이션 시스템' },
+            ],
+        },
+        {
+            subtitle: 'Button',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'button.png', alt: '버스타고 리뉴얼 버튼 시스템' },
+            ],
+        },
+        {
+            subtitle: 'Mockup',
+            children: [
+                { type: 'image', src: BUSTAGO_DESIGN_SYSTEM_IMG + 'brand.png', alt: '버스타고 포스터 버스정류장 목업 이미지' },
+            ],
+        },
+    ],
+};
+
+/* ------------------------------------------------------------
    Tmax Design System — 접근성을 품은 Atomic 디자인 시스템 구축기
    ------------------------------------------------------------ */
 const DESIGN_SYSTEM_IMG = 'assets/img/design-system/';
@@ -720,9 +1039,12 @@ const CYWORLD_PROJECT = {
     cursorLabel: 'Visit Site ↗',
 };
 
+
 window.PORTFOLIO_PROJECTS = [
     WALLA_PROJECT,
     ADMIN_PROJECT,
+    BUSTAGO_PROJECT,
+    BUSTAGO_DESIGN_SYSTEM,
     DESIGN_SYSTEM,
     CYWORLD_PROJECT,
     /* 더미 프로젝트가 필요하면 이 형태로 추가:

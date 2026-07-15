@@ -423,9 +423,13 @@ img {
 .project-aside {
     flex: 0 0 200px;
     padding-top: 40px;
+    padding-bottom: 40px;
     position: sticky;
     top: 0;
     align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
 }
 
 .back-link {
@@ -452,9 +456,24 @@ img {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #c5c5c5 transparent;
+}
+
+.aside-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.aside-list::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: 999px;
 }
 
 .aside-list a {
+    flex: none;
     font-family: var(--font-kr);
     font-weight: 400;
     font-size: 16px;
@@ -610,8 +629,71 @@ img {
 
 .img-group {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(var(--img-group-columns, 2), minmax(0, 1fr));
     gap: 20px;
+}
+
+/* 비율이 다른 프로젝트 화면을 원본 비율 그대로 넘겨보는 가로 갤러리 */
+.horizontal-gallery {
+    width: 100%;
+    min-width: 0;
+}
+
+.horizontal-gallery-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 0 16px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: #b8b8b8 #eeeeee;
+    scrollbar-width: thin;
+}
+
+.horizontal-gallery-track:focus-visible {
+    outline: 2px solid var(--color-headline);
+    outline-offset: 6px;
+    border-radius: 2px;
+}
+
+.horizontal-gallery-track::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-gallery-track::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 999px;
+}
+
+.horizontal-gallery-track::-webkit-scrollbar-thumb {
+    background: #b8b8b8;
+    border-radius: 999px;
+}
+
+.horizontal-gallery-item {
+    flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #f5f5f5;
+    scroll-snap-align: start;
+}
+
+.horizontal-gallery-item img {
+    display: block;
+    width: auto;
+    height: clamp(420px, 48vw, 720px);
+    max-width: none;
+}
+
+.horizontal-gallery-caption {
+    padding: 16px 20px;
+    font-family: var(--font-kr);
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--color-text-muted);
+    background: #ffffff;
 }
 
 .quote-block {
@@ -645,6 +727,18 @@ img {
     font-size: 18px;
     line-height: 1.8;
     color: var(--color-text-muted);
+    white-space: pre-line; /* 데이터의 \n을 줄바꿈으로 표시 */
+}
+
+.quote-text a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.quote-text a:hover {
+    opacity: 0.65;
 }
 
 /* --- 타이틀 아래 요약 --- */
@@ -653,8 +747,9 @@ img {
     font-family: var(--font-kr);
     font-weight: 500;
     font-size: 16px;
-    line-height: 22px;
+    line-height: 26px;
     color: var(--color-text-muted);
+    white-space: pre-line; /* 데이터의 \n을 줄바꿈으로 표시 */
 }
 
 /* --- 캡션 없는 이미지 (라운드 패널) --- */
@@ -979,10 +1074,13 @@ img {
         flex: none;
         position: static;
         display: flex;
+        flex-direction: row;
         align-items: center;
         gap: 32px;
         width: 100%;
         min-width: 0;
+        max-height: none;
+        padding-bottom: 0;
     }
 
     .aside-list {
@@ -990,6 +1088,7 @@ img {
         flex-direction: row;
         gap: 8px;
         overflow-x: auto;
+        overflow-y: hidden;
         scrollbar-width: none;
     }
 
@@ -1103,6 +1202,10 @@ img {
 
     .img-group {
         grid-template-columns: 1fr;
+    }
+
+    .horizontal-gallery-item img {
+        height: clamp(320px, 110vw, 520px);
     }
 
     .stats-block {

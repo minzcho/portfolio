@@ -80,6 +80,27 @@
         return span;
     }
 
+    /* [표시 문구](https://...) 형식만 링크로 바꾸고 나머지는 일반 텍스트로 유지한다. */
+    function appendTextWithLinks(parent, value) {
+        const source = String(value || '');
+        const linkPattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+        let cursor = 0;
+        let match;
+
+        while ((match = linkPattern.exec(source)) !== null) {
+            parent.appendChild(document.createTextNode(source.slice(cursor, match.index)));
+            const link = document.createElement('a');
+            link.href = match[2];
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = match[1];
+            parent.appendChild(link);
+            cursor = match.index + match[0].length;
+        }
+
+        parent.appendChild(document.createTextNode(source.slice(cursor)));
+    }
+
     function imgBlockEl(data) {
         const block = document.createElement('figure');
         const hasCaption = Boolean(data.caption);
@@ -151,9 +172,42 @@
             case 'imageGroup': {
                 el = document.createElement('div');
                 el.className = 'img-group';
+                if (block.columns) {
+                    el.style.setProperty('--img-group-columns', block.columns);
+                }
                 (block.images || []).forEach(function (img) {
                     el.appendChild(imgBlockEl(img));
                 });
+                break;
+            }
+            /* 비율이 서로 다른 긴 이미지들을 원본 비율로 넘겨보는 갤러리
+               { images: [{src, alt, caption}], label?: '갤러리 설명' } */
+            case 'horizontalGallery': {
+                el = document.createElement('div');
+                el.className = 'horizontal-gallery';
+                el.setAttribute('role', 'region');
+                el.setAttribute('aria-label', block.label || '프로젝트 이미지 갤러리');
+
+                const track = document.createElement('div');
+                track.className = 'horizontal-gallery-track';
+                track.tabIndex = 0;
+                (block.images || []).forEach(function (imageData) {
+                    const figure = document.createElement('figure');
+                    figure.className = 'horizontal-gallery-item';
+                    const img = document.createElement('img');
+                    img.src = imageData.src || '';
+                    img.alt = imageData.alt || imageData.caption || '';
+                    img.loading = 'lazy';
+                    figure.appendChild(img);
+                    if (imageData.caption) {
+                        const caption = document.createElement('figcaption');
+                        caption.className = 'horizontal-gallery-caption';
+                        caption.textContent = imageData.caption;
+                        figure.appendChild(caption);
+                    }
+                    track.appendChild(figure);
+                });
+                el.appendChild(track);
                 break;
             }
             case 'video': {
@@ -177,7 +231,7 @@
                 }
                 const text = document.createElement('p');
                 text.className = 'quote-text';
-                text.textContent = block.text || '';
+                appendTextWithLinks(text, block.text);
                 el.appendChild(head);
                 el.appendChild(text);
                 break;
@@ -352,9 +406,16 @@
     (project.sections || []).forEach(function (sectionData, index) {
         const sectionEl = document.createElement('section');
         sectionEl.className = 'block-section';
+        const sectionSlugSource = sectionData.subtitle || sectionData.title || index;
         sectionEl.id = 'section-' + index + '-' +
-            String(sectionData.subtitle || '').toLowerCase().replace(/[^a-z0-9가-힣]+/g, '-');
-        tocSections.push({ id: sectionEl.id, label: sectionData.subtitle || '', el: sectionEl });
+            String(sectionSlugSource).toLowerCase().replace(/[^a-z0-9가-힣]+/g, '-');
+        /* 섹션 수에는 제한을 두지 않는다. title이 있으면 생성되는 h2와 1:1이고,
+           title 없이 이미지만 쓰는 기존 프로젝트도 subtitle로 목차를 유지한다. */
+        tocSections.push({
+            id: sectionEl.id,
+            label: sectionData.subtitle || sectionData.title || 'Section ' + (index + 1),
+            el: sectionEl,
+        });
 
         /* 섹션 머리(서브타이틀 + 제목 + 도입 텍스트).
            hideHeader가 true면 aside 목차에만 표시하고 본문 머리는 생략한다. */
@@ -438,13 +499,26 @@
         /* 태블릿 가로 목차에서 활성 항목이 보이도록 목록만 가로 스크롤
            (scrollIntoView는 문서 전체 스크롤을 건드려 부드러운 이동을 끊으므로 사용 금지) */
         const link = tocLinks[index];
-        if (link && list.scrollWidth > list.clientWidth) {
+        if (!link) return;
+
+        if (list.scrollWidth > list.clientWidth) {
             const listRect = list.getBoundingClientRect();
             const rect = link.getBoundingClientRect();
             if (rect.left < listRect.left) {
                 list.scrollLeft += rect.left - listRect.left;
             } else if (rect.right > listRect.right) {
                 list.scrollLeft += rect.right - listRect.right;
+            }
+        }
+
+        /* 항목이 많아 세로 스크롤이 생겨도 활성 항목이 항상 보이게 한다. */
+        if (list.scrollHeight > list.clientHeight) {
+            const listRect = list.getBoundingClientRect();
+            const rect = link.getBoundingClientRect();
+            if (rect.top < listRect.top) {
+                list.scrollTop += rect.top - listRect.top;
+            } else if (rect.bottom > listRect.bottom) {
+                list.scrollTop += rect.bottom - listRect.bottom;
             }
         }
     }
