@@ -42,10 +42,10 @@
         image.className = 'card-image';
         if (project.thumbVideo) {
             const video = document.createElement('video');
-            video.src = project.thumbVideo;
-            video.autoplay = true;
+            /* iOS 자동재생 조건: muted/playsinline이 src보다 먼저 설정되어야 함 */
             video.muted = true;
             video.defaultMuted = true;
+            video.autoplay = true;
             video.loop = true;
             video.playsInline = true;
             video.preload = 'auto'; /* 경량 썸네일이라 즉시 전체 로드 */
@@ -53,8 +53,17 @@
             video.setAttribute('muted', '');
             video.setAttribute('loop', '');
             video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
             video.setAttribute('aria-hidden', 'true');
             if (project.thumb) video.poster = project.thumb;
+            video.src = project.thumbVideo;
+            /* 재생 가능해지면 즉시 재생 시도 (autoplay 속성이 무시되는 경우 대비) */
+            video.addEventListener('loadeddata', function () {
+                if (video.paused) {
+                    const p = video.play();
+                    if (p) p.catch(function () { /* 저전력 모드 등에서 거부 → 첫 제스처에서 재시도 */ });
+                }
+            });
             image.appendChild(video);
         } else if (project.thumb) {
             const img = document.createElement('img');
@@ -70,5 +79,20 @@
 
     projects.forEach(function (project) {
         grid.appendChild(cardEl(project));
+    });
+
+    /* iOS 저전력 모드 등에서 자동재생이 거부된 경우:
+       첫 터치/스크롤(카드가 아니어도 됨)에서 멈춰 있는 썸네일 영상을 일괄 재생.
+       카드를 직접 누르지 않아도 되므로 페이지 이동 없이 재생이 시작된다. */
+    function resumePausedVideos() {
+        grid.querySelectorAll('video').forEach(function (video) {
+            if (video.paused) {
+                const p = video.play();
+                if (p) p.catch(function () { /* 여전히 거부되면 다음 제스처에서 재시도 */ });
+            }
+        });
+    }
+    ['touchstart', 'scroll', 'pointerdown'].forEach(function (evt) {
+        window.addEventListener(evt, resumePausedVideos, { passive: true });
     });
 })();
