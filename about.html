@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — MinJung Cho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <a href="index.html" class="nav-name">MinJung Cho</a>
+                <span class="nav-role">Product Designer</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">Work</a>
+                <!-- Misc. 페이지 준비되면 주석 해제
+                <a href="#">Misc.</a>
+                -->
+                <a href="about.html" class="active">About</a>
+                <a href="assets/MinJungCho_CV.pdf" target="_blank">CV</a>
+                <a href="#" class="nav-globe" aria-label="Language" data-tooltip="다국어 기능 공사중" onclick="return false;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M3 12h18"/>
+                        <path d="M12 3a13.5 13.5 0 0 1 3.5 9 13.5 13.5 0 0 1-3.5 9 13.5 13.5 0 0 1-3.5-9A13.5 13.5 0 0 1 12 3z"/>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="about container">
+        <!-- about-stage: 텍스트 + 호버 이미지가 배치되는 기준 영역 -->
+        <div class="about-stage">
+            <div class="about-text">
+                <p class="about-title">안녕하세요! 프로덕트 디자이너 조민정입니다.</p>
+                <p class="about-par">
+                    <button class="about-kw" data-key="beijing">중국에서 국제학교</button>를 졸업하고
+                    <span class="about-inline" data-key="beijing" hidden>
+                        <span class="about-inline-media"><img src="assets/img/about/beijing.jpeg" alt="베이징 국제학교 후문 앞에서"><em>2008년부터 5년 동안 베이징에 살았어요</em></span>
+                    </span>
+                    <button class="about-kw" data-key="london">영국에서 미술대학</button>을 졸업했습니다.
+                    <span class="about-inline" data-key="london" hidden>
+                        <span class="about-inline-media"><img src="assets/img/about/london.jpg" alt="런던 미술대학 시절"><em>우수 포트폴리오로 인정 받아 파운데이션 코스를 스킵하고 3년만에 졸업했어요</em></span>
+                    </span>
+                </p>
+                <p class="about-par">이후 한국에 돌아와 퍼블리셔와 UI/UX디자이너의 길을 걷게 되었어요.
+                    <button class="about-kw" data-key="travel">여행</button>을 좋아하지만 굉장한 집순이고 취미는
+                    <span class="about-inline" data-key="travel" hidden>
+                        <span class="about-inline-media"><img src="assets/img/about/travel.jpeg" alt="여행 사진"><em>지금까지 28개 국을 여행했어요</em></span>
+                    </span>
+                    <button class="about-kw" data-key="game">게임</button>입니다.
+                    <span class="about-inline" data-key="game" hidden>
+                        <span class="about-inline-media"><img src="assets/img/about/game.png" alt="즐겨한 게임들"></span>
+                    </span>
+                </p>
+                <p class="about-par">주식, 코인, 적금 등 재테크를 꾸준히 하고 있고
+                    <button class="about-kw" data-key="tech">전자기기</button>를 좋아해요.
+                    <span class="about-inline" data-key="tech" hidden>
+                        <span class="about-inline-media"><img src="assets/img/about/tech.png" alt="좋아하는 전자기기"></span>
+                    </span>
+                </p>
+                <p class="about-par">소소하게
+                    <button class="about-kw" data-key="character">캐릭터 디자인</button>도 하고, 온라인 쇼핑몰도 운영해보다가
+                    <span class="about-inline" data-key="character" hidden>
+                        <span class="about-inline-media"><img src="assets/img/about/character.jpeg" alt="캐릭터 쭈바와 쪼야"><em>쭈바와 쪼야</em></span>
+                    </span>
+                    현재는 디자인 외주 일을 하며, 합류 할 다음 회사를 찾고 있어요.
+                </p>
+            </div>
+
+            <!-- 데스크톱/태블릿 호버 리빌 (위치·크기·회전은 CSS) -->
+            <figure class="about-float float-beijing" data-key="beijing" aria-hidden="true">
+                <img src="assets/img/about/beijing.jpeg" alt="">
+                <figcaption>2008년부터 5년 동안 베이징에 살았어요</figcaption>
+            </figure>
+            <figure class="about-float float-london" data-key="london" aria-hidden="true">
+                <img src="assets/img/about/london.jpg" alt="">
+                <figcaption>우수 포트폴리오로 인정 받아 파운데이션 코스를 스킵하고 3년만에 졸업했어요</figcaption>
+            </figure>
+            <figure class="about-float float-travel" data-key="travel" aria-hidden="true">
+                <img src="assets/img/about/travel.jpeg" alt="">
+                <figcaption>지금까지 28개 국을 여행했어요</figcaption>
+            </figure>
+            <figure class="about-float float-game" data-key="game" aria-hidden="true">
+                <img src="assets/img/about/game.png" alt="">
+            </figure>
+            <figure class="about-float float-tech" data-key="tech" aria-hidden="true">
+                <img src="assets/img/about/tech.png" alt="">
+            </figure>
+            <figure class="about-float float-character" data-key="character" aria-hidden="true">
+                <img src="assets/img/about/character.jpeg" alt="">
+                <figcaption>쭈바와 쪼야</figcaption>
+            </figure>
+        </div>
+    </main>
+
+    <script src="js/about.js"></script>
+    <script src="js/cursor.js"></script>
+</body>
+</html>

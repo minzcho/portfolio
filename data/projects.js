@@ -215,18 +215,18 @@ const WALLA_PROJECT = {
                     text: '“로직 선이 복잡하고, 어떤 조건으로 어디에 연결되는지 보기 어렵다”',
                 },
                 { type: 'text', text: 'UT를 통해 로직 설정 화면의 문제점을 아래와 같이 크게 2가지로 나눌 수 있었습니다.' },
-                { type: 'image', src: WALLA_IMG + 'problem-ut.png', alt: 'AS-IS 로직 설정 UT 화면' },
                 {
                     type: 'heading',
                     title: '문제 1. 선택지가 보이지 않아 분기 조건 탐색이 어려운 로직 설정',
-                    text: '질문의 선택지는 편집 화면에서만 확인할 수 있어, 로직을 설정하기 위해서는 잦은 화면 전환이 필요했습니다.',
                 },
-                { type: 'image', src: WALLA_IMG + 'problem-switch.png', alt: '편집 화면과 로직 화면 사이의 잦은 전환' },
+                { type: 'image', src: WALLA_IMG + 'problem-ut.png', alt: 'AS-IS 로직 설정 UT 화면' },
+                { type: 'text', text: '질문의 선택지는 편집 화면에서만 확인할 수 있어, 로직을 설정하기 위해서는 잦은 화면 전환이 필요했습니다.', },
                 {
                     type: 'heading',
                     title: '문제 2. 복잡하게 얽혀있는 로직 구조도로 협업에 취약',
-                    text: '설정한 조건은 우측 패널바에서 하나하나 확인해야 했고,  거미줄처럼 얽혀있는 조건 분기선으로 인해 직접 만든 로직조차 읽기 어려웠습니다.',
                 },
+                { type: 'image', src: WALLA_IMG + 'problem-switch.png', alt: '편집 화면과 로직 화면 사이의 잦은 전환' },
+                { type: 'text', text: '설정한 조건은 우측 패널바에서 하나하나 확인해야 했고,  거미줄처럼 얽혀있는 조건 분기선으로 인해 직접 만든 로직조차 읽기 어려웠습니다.' },
                 {
                     type: 'stats',
                     items: [
@@ -519,32 +519,7 @@ const ADMIN_PROJECT = {
                     type: 'quote',
                     name: 'TASK 1',
                     text: '“파일 보안 설정을 켜고 다운로드 가능 기간을 30일로 설정하세요”',
-                },
-                {
-                    type: 'imageGroup',
-                    images: [
-                        { src: ADMIN_IMG + 'ut1_as-is1.png', caption: '다운로드 가능 기간을 찾지 못해서 중도 포기한 케이스 10명 중 2명' },
-                        { src: ADMIN_IMG + 'ut1_as-is2.png', caption: '기간과 관리자 복구 가능 기간을 헷갈린 케이스 10명 중 7명' },
-                    ],
-                },
-                {
-                    type: 'heading',
-                    title: '1. AS-IS',
-                    icon: 'warning',
-                    text: '기존안에서는 태스크를 아예 통과하지 못한 사람도 있었고, 예상치 못한 부분에서 의외의 결과도 알 수 있었습니다.\n' +
-                        '10명을 대상으로 진행된 UT는 태스크를 끝내기까지 평균 67.1초 소요 되었습니다.\n' +
-                        "생각지 못했던 부분은, 하단의 ‘관리자 복구 가능 기간'의 30일 옵션과 헷갈린 케이스가 70%나 된 점이었습니다.",
-                },
-                { type: 'image', src: ADMIN_IMG + 'ut1_to-be1.png', alt: '하위 항목 힌트를 보여주는 TO-BE 사용성 테스트 화면' },
-                { type: 'image', src: ADMIN_IMG + 'ut1_to-be2.png', alt: '다운로드 가능 기간을 빠르게 설정한 사용자 시선 흐름' },
-                {
-                    type: 'heading',
-                    title: '2. TO-BE : 하위 항목이 접혀있을 때도 내용을 먼저 표시, TASK 100% 성공',
-                    icon: 'check',
-                    text: '개선안의 동일한 태스크 UT는 완료 시간까지 47.4초 줄어들고, 오클릭률이 48.9%나 줄어든 결과를 얻었습니다.\n' +
-                        '동일하게 10명을 대상으로 진행된 UT는 태스크를 끝내기까지 평균 19.7초 소요 되었습니다.\n' +
-                        '‘항목’이라는 추상적인 단어를 명확한 기능의 명칭으로 미리 보여준 점이 크게 작용했다는 인사이트를 얻었습니다.',
-                },
+                }, 
                 {
                     type: 'metricTable',
                     rows: [
@@ -554,6 +529,37 @@ const ADMIN_PROJECT = {
                         { label: '평균 오클릭률', before: '80.8%', after: '31.9%', delta: '-49%p' },
                     ],
                 },
+                {
+                    type: 'heading',
+                    title: '1. AS-IS',
+                    icon: 'warning',
+                },
+                {
+                    type: 'imageGroup',
+                    images: [
+                        { src: ADMIN_IMG + 'ut1_as-is1.png', caption: '다운로드 가능 기간을 찾지 못해서 중도 포기한 케이스 10명 중 2명' },
+                        { src: ADMIN_IMG + 'ut1_as-is2.png', caption: '기간과 관리자 복구 가능 기간을 헷갈린 케이스 10명 중 7명' },
+                    ],
+                },
+                {
+                    type: 'text',
+                    text: '기존안에서는 태스크를 아예 통과하지 못한 사람도 있었고, 예상치 못한 부분에서 의외의 결과도 알 수 있었습니다.\n' +
+                        '10명을 대상으로 진행된 UT는 태스크를 끝내기까지 평균 67.1초 소요 되었습니다.\n' +
+                        "생각지 못했던 부분은, 하단의 ‘관리자 복구 가능 기간'의 30일 옵션과 헷갈린 케이스가 70%나 된 점이었습니다.",
+                },
+                {
+                    type: 'heading',
+                    title: '2. TO-BE : 하위 항목이 접혀있을 때도 내용을 먼저 표시, TASK 100% 성공',
+                    icon: 'check',
+                },
+                { type: 'image', src: ADMIN_IMG + 'ut1_to-be1.png', alt: '하위 항목 힌트를 보여주는 TO-BE 사용성 테스트 화면' },
+                { type: 'image', src: ADMIN_IMG + 'ut1_to-be2.png', alt: '다운로드 가능 기간을 빠르게 설정한 사용자 시선 흐름' },
+                {
+                    type: 'text',
+                    text: '개선안의 동일한 태스크 UT는 완료 시간까지 47.4초 줄어들고, 오클릭률이 48.9%나 줄어든 결과를 얻었습니다.\n' +
+                        '동일하게 10명을 대상으로 진행된 UT는 태스크를 끝내기까지 평균 19.7초 소요 되었습니다.\n' +
+                        '‘항목’이라는 추상적인 단어를 명확한 기능의 명칭으로 미리 보여준 점이 크게 작용했다는 인사이트를 얻었습니다.',
+                },
             ],
         },
         {
@@ -562,19 +568,6 @@ const ADMIN_PROJECT = {
             children: [
                 { type: 'text', text: '사용 툴 : Maze / N = 10' },
                 { type: 'quote', name: 'TASK 2', text: '“뷰어 사용 여부를 TXT만 ‘사용 안 함’으로 바꾸고 적용하세요”' },
-                { type: 'image', src: ADMIN_IMG + 'ut2_as-is.png', alt: '독립된 뷰어 설정 블록을 탐색하는 AS-IS 사용성 테스트' },
-                {
-                    type: 'heading',
-                    title: '1. AS-IS : 동일한 “뷰어 사용 여부” 설정이지만 확장자에 따라 독립적인 블록으로 나뉘어졌던 기존',
-                    icon: 'warning',
-                },
-                { type: 'image', src: ADMIN_IMG + 'ut2_to-be.png', alt: '관련 뷰어 설정을 한 블록으로 묶은 TO-BE 사용성 테스트' },
-                {
-                    type: 'heading',
-                    title: '2. TO-BE : 관련 설정을 하나의 블록으로 묶어 탐색에 도움되도록 개선, 긍정적인 피드백 확보',
-                    icon: 'check',
-                    text: '완료 시간이 줄어들지는 않았지만 평균 오클릭률이 -20%p 줄어들었으며, 개선 후가 “훨씬 깔끔해보인다”, “모아두니 보기 편하다”와 같은 긍정적인 피드백을 얻을 수 있었습니다.',
-                },
                 {
                     type: 'metricTable',
                     rows: [
@@ -583,6 +576,22 @@ const ADMIN_PROJECT = {
                         { label: '중도 포기', before: '0%', after: '0%', delta: '-', tone: 'neutral' },
                         { label: '평균 오클릭률', before: '42.9%', after: '23.1%', delta: '-20%p' },
                     ],
+                },
+                {
+                    type: 'heading',
+                    title: '1. AS-IS : 동일한 “뷰어 사용 여부” 설정이지만 확장자에 따라 독립적인 블록으로 나뉘어졌던 기존',
+                    icon: 'warning',
+                },
+                { type: 'image', src: ADMIN_IMG + 'ut2_as-is.png', alt: '독립된 뷰어 설정 블록을 탐색하는 AS-IS 사용성 테스트' },
+                {
+                    type: 'heading',
+                    title: '2. TO-BE : 관련 설정을 하나의 블록으로 묶어 탐색에 도움되도록 개선, 긍정적인 피드백 확보',
+                    icon: 'check',
+                },
+                { type: 'image', src: ADMIN_IMG + 'ut2_to-be.png', alt: '관련 뷰어 설정을 한 블록으로 묶은 TO-BE 사용성 테스트' },
+                {
+                    type: 'text',
+                    text: '완료 시간이 줄어들지는 않았지만 평균 오클릭률이 -20%p 줄어들었으며, 개선 후가 “훨씬 깔끔해보인다”, “모아두니 보기 편하다”와 같은 긍정적인 피드백을 얻을 수 있었습니다.',
                 },
             ],
         },
