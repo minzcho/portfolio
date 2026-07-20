@@ -48,7 +48,7 @@
             video.defaultMuted = true;
             video.loop = true;
             video.playsInline = true;
-            video.preload = 'metadata';
+            video.preload = 'auto'; /* 경량 썸네일이라 즉시 전체 로드 */
             video.setAttribute('autoplay', '');
             video.setAttribute('muted', '');
             video.setAttribute('loop', '');

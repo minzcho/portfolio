@@ -147,7 +147,7 @@ const WALLA_PROJECT = {
     date: '2026. 04',
     size: 'l',
     thumb: WALLA_IMG + 'hero.png',
-    thumbVideo: WALLA_IMG + 'hero.mov',
+    thumbVideo: WALLA_IMG + 'hero_thumb.mp4', /* 홈 카드용 경량 버전 (원본: hero.mov) */
     hero: WALLA_IMG + 'hero.png',
     meta: {
         role: 'PM, PD · 5인 팀 프로젝트',
@@ -405,7 +405,7 @@ const ADMIN_PROJECT = {
     date: '2024. 07',
     size: 'l',
     thumb: ADMIN_IMG + 'hero.png',
-    thumbVideo: ADMIN_IMG + 'hypothesis_1.mp4',
+    thumbVideo: ADMIN_IMG + 'hypothesis_1_thumb.mp4', /* 홈 카드용 경량 버전 */
     hero: ADMIN_IMG + 'hero.png',
     sectionGap: 120,
     meta: {
@@ -1041,7 +1041,7 @@ const CYWORLD_PROJECT = {
     date: '2021',
     size: 'm',
     thumb: CYWORLD_IMG + 'hero.png',
-    thumbVideo: CYWORLD_IMG + 'hero.mp4',
+    thumbVideo: CYWORLD_IMG + 'hero_thumb.mp4', /* 홈 카드용 경량 버전 (원본: hero.mp4) */
     externalUrl: 'https://minjungcho.netlify.app/',
     cursorLabel: 'Visit Site ↗',
 };
