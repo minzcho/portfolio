@@ -886,7 +886,6 @@ const BUSTAGO_DESIGN_SYSTEM = {
     date: '2026. 01',
     size: 'l',
     thumb: BUSTAGO_DESIGN_SYSTEM_IMG + 'hero.png',
-    thumbVideo: BUSTAGO_DESIGN_SYSTEM_IMG + 'hypothesis_1.mp4',
     hero: BUSTAGO_DESIGN_SYSTEM_IMG + 'hero.png',
     sectionGap: 120,
     meta: {
@@ -954,7 +953,6 @@ const DESIGN_SYSTEM = {
     date: '2023. 12',
     size: 'l',
     thumb: DESIGN_SYSTEM_IMG + 'hero.png',
-    thumbVideo: DESIGN_SYSTEM_IMG + 'hypothesis_1.mp4',
     hero: DESIGN_SYSTEM_IMG + 'hero.png',
     sectionGap: 120,
     meta: {
