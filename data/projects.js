@@ -144,7 +144,7 @@ const WALLA_PROJECT = {
     title: '처음 본 사람도 읽을 수 있게\n설문조사 로직 구조도 개선',
     summary: '설문조사 폼 빌더 SaaS의 설문 제작 화면에서 86% 이탈률, 데이터로 문제를 특정하고 UT로 검증한 UX 개선 프로젝트',
     category: '사이드 프로젝트',
-    date: '2026. 04',
+    date: '2026. 05',
     size: 'l',
     thumb: WALLA_IMG + 'hero.png',
     thumbVideo: WALLA_IMG + 'hero_thumb.mp4', /* 홈 카드용 경량 버전 (원본: hero.mov) */
@@ -154,9 +154,8 @@ const WALLA_PROJECT = {
         period: '2026. 04 - 2026. 05 (3주)',
         service: '왈라 설문조사 폼 빌더 SaaS',
         contribution: [
-            '문제 정의, 기획, 디자인,',
-            'AI 활용 프로토타입 제작,',
-            '리서치, UT 진행',
+            '기여도 상: 문제 정의, 기획, 디자인, AI 활용 프로토타입 제작',
+            '기여도 중: 리서치, UT 진행',
         ],
     },
     sections: [
@@ -204,7 +203,7 @@ const WALLA_PROJECT = {
             ],
         },
         {
-            subtitle: 'Problem',
+            subtitle: 'Problem (AS-IS)',
             title: '분기 하나를 수정하기 위해 평균 3번의 화면 이동이 필요한 문제',
             text: '로직의 불편을 뾰족하게 잡기 위하여 5명의 팀원들과 자체 UT를 진행했습니다.\n' +
                 'Task : 기존 왈라 서비스(AS-IS)를 이용해 동일한 시나리오로 설문지 제작',
@@ -237,7 +236,7 @@ const WALLA_PROJECT = {
             ],
         },
         {
-            subtitle: 'Solution',
+            subtitle: 'Solution (TO-BE)',
             title: '맥락의 단절 없이 탐색하고 편집하는 To-Be UI 설계',
             children: [
                 {
@@ -259,7 +258,7 @@ const WALLA_PROJECT = {
             ],
         },
         {
-            subtitle: 'UT',
+            subtitle: 'UT (Prototype)',
             title: '실제 행동 패턴 검증을 위한 AI 활용 프로토타입 제작',
             text: '로직 선 연결, 조건에 따른 구조 변경처럼 실제 인터랙션이 일어나야 측정 가능한 항목이 있었습니다. 피그마 프로토타입은 클릭 경로가 고정되어 있어 사용자가 스스로 발견하는지를 테스트하기 어려워, 디자인한 시안을 토대로 실제 동작 가능한 프로토타입으로 구현하여 A/B Test UT를 진행했습니다.',
             children: [
@@ -816,7 +815,7 @@ const BUSTAGO_PROJECT = {
                 {
                     type: 'cta',
                     text: 'Prototype 보기',
-                    href: 'https://www.figma.com/proto/F3LhZgh6634HSlHBqrPoXe/%EC%A1%B0%EB%AF%BC%EC%A0%95%EB%8B%98?page-id=1664%3A26470&node-id=1664-26284&p=f&viewport=-1300%2C1347%2C0.72&t=mXf7AIkpfIzIR2Rx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1664%3A26417',
+                    href: 'https://www.figma.com/proto/52x1lheT7ZtEZn1xVBZHhy/%EB%B2%84%EC%8A%A4%ED%83%80%EA%B3%A0-UIUX%EA%B0%9C%EC%84%A0---%EC%A1%B0%EB%AF%BC%EC%A0%95--%EB%A1%9C%EB%94%A9%EC%97%90-%EC%8B%9C%EA%B0%84%EC%9D%B4-%EA%B1%B8%EB%A0%A4-%EB%B2%84%EB%B2%85%EC%9D%BC-%EC%88%98-%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4.-%EC%83%88%EB%A1%9C%EA%B3%A0%EC%B9%A8%EC%9D%80-R%EC%9D%84-%EB%88%8C%EB%9F%AC%EC%A3%BC%EC%84%B8%EC%9A%94.-?node-id=1664-26417&viewport=332%2C572%2C0.05&t=pvmk64C2SMy9kEUF-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1664%3A26417&page-id=1664%3A26470',
                 },
             ],
         },
@@ -892,7 +891,7 @@ const BUSTAGO_DESIGN_SYSTEM = {
         role: ['프로덕트 디자이너'],
         period: ['2025. 01'],
         service: ['버스타고'],
-        contribution: '개인 프로젝트',
+        contribution: '개인 프로젝트 100%',
     },
     sections: [
         {
@@ -941,6 +940,102 @@ const BUSTAGO_DESIGN_SYSTEM = {
 };
 
 /* ------------------------------------------------------------
+   Tmax Gaia Docs — 더 유연한 협업 경험을 위한 드라이브 UX 구조 개선
+   ------------------------------------------------------------ */
+const GAIADOCS_IMG = 'assets/img/gaiadocs/';
+
+const GAIADOCS = {
+    id: 'gaiadocs',
+    title: '더 유연한 협업 경험을 위한\n드라이브 UX 구조 개선',
+    summary: '디자인 리뉴얼  ∙  반응형  ∙  세부 기능 개선\n화면 사용 영역 80%↑  ∙  누적 VoC 94건 100% 해결',
+    category: '실무 프로젝트',
+    date: '2024. 06',
+    size: 'l',
+    thumb: GAIADOCS_IMG + 'hero.png',
+    hero: GAIADOCS_IMG + 'hero.png',
+    sectionGap: 120,
+    meta: {
+        role: ['프로덕트 디자이너', '티맥스 그룹 실무 프로젝트'],
+        period: ['2024. 06 - 2024. 09'],
+        client: ['티맥스그룹, 서울시교육청, 한국농어촌공사'],
+        contribution: 'Docs 제품 디자인 전담 : UX 기획 80%, 디자인 100%',
+    },
+    sections: [
+        {
+            subtitle: 'Overview',
+            children: [
+                { type: 'image', src: GAIADOCS_IMG + '01.jpg', alt: '개인문서 저장을 넘어 편리한 협업을 위한 b2b saas 드라이브' },
+            ],
+        },
+        {
+            subtitle: 'AS-IS UI',
+            children: [
+                { type: 'image', src: GAIADOCS_IMG + 'as-is.jpg', alt: '기존UI 1' },
+                { type: 'image', src: GAIADOCS_IMG + 'as-is2.jpg', alt: '기존UI 2' },
+            ],
+        },
+        {
+            subtitle: 'Problem',
+            children: [
+                { type: 'image', src: GAIADOCS_IMG + '02.jpg', alt: '문제점' },
+
+            ],
+        },
+        {
+            subtitle: 'Hypothesis',
+            title: '화면을 분할해서 협업하는 유저에게 \n좁은 화면의 드라이브 UX 개선은 곧 협업 효율 향상으로 이어질 것이다',
+            children: [
+                {
+                    type: 'quote',
+                    name: '개선 방향성',
+                    text: '- 반응형 대응을 통해 콘텐츠 단절과 가로 스크롤 등의 사용성 문제 개선 \n- 정보 위계 재설계를 통해 혼잡하고 기능 탐색에 어려움이 있던 UI 개선 \n- VoC기반 단기 대응으로 누적되어왔던 컬러와 그래픽 요소들을 개선하여 브랜드 일관성 개선',
+                },
+                { type: 'image', src: GAIADOCS_IMG + '03.jpg', alt: '가설' },
+            ],
+        },
+        {
+            subtitle: 'TO-BE',
+            children: [
+                { type: 'image', src: GAIADOCS_IMG + '04.jpg', alt: 'LNB개선' },
+                { type: 'image', src: GAIADOCS_IMG + '05.jpg', alt: '새문서 버튼 그룹 개선' },
+                { type: 'image', src: GAIADOCS_IMG + '06.jpg', alt: '컨텍스트메뉴 개선' },
+                { type: 'image', src: GAIADOCS_IMG + '07.jpg', alt: '세부정보 패널 개선' },
+            ],
+        },
+        {
+            subtitle: 'Final UI',
+            children: [
+                {
+                    type: 'horizontalGallery',
+                    label: '가이아닥스 최종 UI 화면',
+                    images: [
+                        { src: GAIADOCS_IMG + 'to-be-01.png', alt: '반응형1' },
+                        { src: GAIADOCS_IMG + 'to-be-02.png', alt: '반응형2' },
+                        { src: GAIADOCS_IMG + 'to-be-03.png', alt: '반응형3' },
+                    ], },
+            ],
+        },
+        {
+            subtitle: 'Result & Lesson Learned',
+            title: '관련 누적 VoC 94건 100% 해결, 추가 VoC 0건 달성',
+            text: '이 프로젝트는 여러 계열사의 다양한 이해관계자들과 조율이 필요했던 만큼 몇 달에 걸쳐 진행되었고\n' +
+                    '디자인을 논리적으로 설득하는 역량과 동료들과의 커뮤니케이션 역량을 키울 수 있던 경험이었습니다.\n' +
+                    '\n내부적으로 데이터 측정이 불가능하여 배포 후 ‘관련 VoC 추가 내역이 없음’을 성공지표로 판단하였고\n' +
+                    '사내 내부 테스트를 통해 동료들에게 정성적인 피드백을 받았으며 긍정적인 반응을 얻을 수 있었습니다.\n' +
+                    '\n또한 전반적 리뉴얼을 진행하며 개별 기능보다는 기능 간 맥락과 관계를 설계하는 것이 더 중요하다는 것을 배웠습니다.',
+            children: [
+                {
+                    type: 'quote',
+                    name: '사내 배포 전사 임직원 테스트를 통한 동료들의 피드백 요약',
+                    text: '"좁은 화면에서 편하게 쓸 수 있어서 협업이 더 쉬워졌어요" \n"그룹사 제품끼리 핏이 더 맞아보여서 하나의 제품으로 보여요" \n"디자인이 많이 바뀌었지만 사용하기엔 더 편해졌어요"',
+                },
+            ],
+        },
+    ],
+};
+
+
+/* ------------------------------------------------------------
    Tmax Design System — 접근성을 품은 Atomic 디자인 시스템 구축기
    ------------------------------------------------------------ */
 const DESIGN_SYSTEM_IMG = 'assets/img/design-system/';
@@ -950,7 +1045,7 @@ const DESIGN_SYSTEM = {
     title: '접근성을 품은\nAtomic 디자인 시스템 구축기',
     summary: '공공기관 드라이브 관리자가 복잡한 보안 정책을 빠르게 설정하도록 정보 위계를 재설계하고 UT로 검증한 UX 개선 프로젝트',
     category: '실무 프로젝트',
-    date: '2023. 12',
+    date: '2024. 09',
     size: 'l',
     thumb: DESIGN_SYSTEM_IMG + 'hero.png',
     hero: DESIGN_SYSTEM_IMG + 'hero.png',
@@ -1028,6 +1123,7 @@ const DESIGN_SYSTEM = {
     ],
 };
 
+
 /* ------------------------------------------------------------
    싸이월드 미니홈피 — 외부 링크 프로젝트 (상세 페이지 없음)
    externalUrl이 있으면 홈 카드 클릭 시 해당 주소가 새 탭으로 열림
@@ -1052,6 +1148,7 @@ window.PORTFOLIO_PROJECTS = [
     ADMIN_PROJECT,
     BUSTAGO_PROJECT,
     BUSTAGO_DESIGN_SYSTEM,
+    GAIADOCS,
     DESIGN_SYSTEM,
     CYWORLD_PROJECT,
     /* 더미 프로젝트가 필요하면 이 형태로 추가:
